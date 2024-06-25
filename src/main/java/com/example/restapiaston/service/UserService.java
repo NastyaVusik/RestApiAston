@@ -21,10 +21,10 @@ public class UserService {
 //    private String setCookies = "Set-Cookie";
     private String browserCookies = "Cookie";
 
-    public HttpHeaders getHttpHeaders(String sessioId) {
+    public HttpHeaders getHttpHeaders(String sessionId) {
 
         HttpHeaders headers = new HttpHeaders();
-        headers.set(browserCookies, sessioId);
+        headers.set(browserCookies, sessionId);
         return headers;
     }
 
