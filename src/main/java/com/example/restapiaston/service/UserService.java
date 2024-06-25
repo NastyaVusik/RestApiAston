@@ -18,24 +18,15 @@ public class UserService {
 
     private final RestTemplate restTemplate;
 
-    private String setCookies = "Set-Cookie";
+//    private String setCookies = "Set-Cookie";
     private String browserCookies = "Cookie";
 
     public HttpHeaders getHttpHeaders(String sessioId) {
 
         HttpHeaders headers = new HttpHeaders();
-        headers.set(setCookies, sessioId);
+        headers.set(browserCookies, sessioId);
         return headers;
     }
-
-//    public List<User> getUser() {
-//
-//        ResponseEntity<User[]> responseEntity = restTemplate.getForEntity(apiUrl, User[].class);
-//        Object[] objects = responseEntity.getBody();
-//
-//        System.out.println("\nUsers = " + responseEntity.getBody() + "\n");
-//        return List.of((User[]) objects);
-//    }
 
 
     public String getUser() {
@@ -81,29 +72,6 @@ public class UserService {
 
         return deleteResponce.getBody();
     }
-
-
-//    private String getSessionId() {
-//        ResponseEntity<String> response = restTemplate.exchange(apiUrl, HttpMethod.GET, null, String.class);
-//        HttpHeaders headers = response.getHeaders();
-//
-////        String setCookies = "set-cookie";
-//        List<String> stringCookies = headers.get(setCookies);
-//        System.out.println("stringCookies = " + stringCookies.get(0) + "\n\n");
-//
-//
-////        return stringCookies.get(0).substring(11, 43);
-//        return stringCookies.get(0);
-//    }
-
-
-//    public Optional<String> readCookie(HttpServletRequest request , String name) {
-//
-//        return Arrays.stream(request.getCookies())
-//                .filter(c -> name.equals(c.getName()))
-//                .map((Cookie cookie) -> cookie.getValue())
-//                .findAny();
-//    }
 
 
     public String readCookie() {
