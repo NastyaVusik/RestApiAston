@@ -1,21 +1,14 @@
 package com.example.restapiaston.service;
 
 import com.example.restapiaston.entity.User;
-import jakarta.servlet.http.Cookie;
-import jakarta.servlet.http.HttpServletRequest;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpEntity;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpMethod;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
-import org.springframework.web.bind.annotation.CookieValue;
-import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.client.RestTemplate;
 
-import java.util.Arrays;
-import java.util.List;
-import java.util.Optional;
 
 @Service
 @RequiredArgsConstructor
@@ -113,13 +106,13 @@ public class UserService {
 //    }
 
 
-    public String readCookie(){
+    public String readCookie() {
         ResponseEntity<String> response = restTemplate.exchange(apiUrl, HttpMethod.GET, null, String.class);
         HttpHeaders headers = response.getHeaders();
         String setCookie = headers.getFirst(HttpHeaders.SET_COOKIE);
 
         return setCookie;
-}
+    }
 
 
     public String getCode() {
